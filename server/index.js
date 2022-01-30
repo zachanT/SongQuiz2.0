@@ -181,9 +181,9 @@ app.get('/', (req, res) => {
   res.send(playlists)
 })
 
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('build'))
-}
+// if(process.env.NODE_ENV === 'production') {
+//   app.use(express.static('build'))
+// }
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
