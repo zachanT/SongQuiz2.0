@@ -1,9 +1,12 @@
+//https://www.youtube.com/results?search_query=deploy+mern+app+to+heroku
+
 const express = require('express')
 const request = require('request');
 const dotenv = require('dotenv');
 const cors = require('cors')
-const querystring = require('querystring')
 const cookieParser = require('cookie-parser')
+const path = require('path')
+
 
 const port = process.env.PORT || 5000
 
@@ -112,9 +115,9 @@ app.get('/auth/callback', (req, res) => {
         res.redirect('/')
       } else {
         res.redirect('/#' +
-          querystring.stringify({
+          ({
             error: 'invalid_token'
-          }));
+          }).toString())
       }
     });
   }
@@ -181,10 +184,13 @@ app.get('/', (req, res) => {
   res.send(playlists)
 })
 
-// if(process.env.NODE_ENV === 'production') {
-//   app.use(express.static('build'))
-// }
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  })
+}
 
 app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`)
+  console.log(`Server running at ${port}`)
 })
