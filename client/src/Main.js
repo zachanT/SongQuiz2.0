@@ -3,15 +3,9 @@ import WebPlayback from './WebPlayback'
 import Display from './Display'
 import Playlist from './Playlist'
 import {Timer} from './Timer'
-/**
- * Resources:
- * How to play a playlist - https://community.spotify.com/t5/Spotify-for-Developers/API-is-there-a-way-to-start-playing-a-playlist-from-a-specific/td-p/4976711
- * Tut for React game -  https://www.youtube.com/watch?v=EPh_VbMxu4E
- * String similarity library - https://www.npmjs.com/package/string-similarity
- */
 
 const LISTEN_TIME = 10000 
-const NUM_ROUNDS = 2
+const NUM_ROUNDS = 5
 
 const track = {
     name: "",
@@ -489,23 +483,3 @@ const Main = (props) => {
 }
 
 export default Main
-
-/*TODO:
--Maybe add option to logout :)
-    -When would we show it? Before starting a game only? During a game? What happens if you log out while ingame?
-
-DONE:
-+New game after finishing a game completely scuffed?
-+Display playlists that you can select from
-+If timer runs out for current song, timer instantly runs out for next song
-+Ties aren't handled at all
-+Hide "Start Game" button after clicking
-+Repeat song
-+Pause player when playlist selected
-+Repeat plays from a diff position from when it was originally played
-+Setup some simple algo to accept answers close enough to actual answer (might just use similarity library to do this)
-    -Change numbers to letter if possible
-    -Special characters changed out with normal letters
-    -[It is really really simple, could improve it in future iterations]
-+If token is expired for any API call, use refresh_token to get access
-*/

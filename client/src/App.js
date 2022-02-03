@@ -3,20 +3,6 @@ import Main from './Main';
 import Login from './Login'
 import './App.css';
 
-/**
- * TODO:
- * -Implement speech to text library
- * -Frontend cleanup. Make it pretty.
- * 
- * Completed: 
- * xCreate input component for guessing
- * xCheck guess against song name/artist
- * xSong seeks to random location and plays for set num of secs
- * xCountdown timer after song pauses
- * xScoring system and win condition
- * xSelect certain spotify playlist to start the game from (maybe be able to select from an actual interface within the app)
- */
-
 function App() {
 
   const [token, setToken] = useState('');
